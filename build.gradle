@@ -1,0 +1,8 @@
+apply from: rootProject.file('gradle/repositories.gradle')
+apply from: rootProject.file('gradle/conventions.gradle')
+apply from: rootProject.file("gradle/check.gradle")
+apply from: rootProject.file("gradle/test.gradle")
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2.1'
+}

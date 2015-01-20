@@ -1,0 +1,37 @@
+apply plugin: 'build-dashboard'
+
+//apply plugin: 'jacoco'
+//jacocoTestReport {
+//    reports {
+//        csv.enabled false
+//        html.enabled true
+//        html.destination "${buildDir}/reports/jacoco/html"
+//        xml.enabled false
+//    }
+//}
+//buildDashboard.dependsOn(jacocoTestReport)
+
+apply plugin: 'pmd'
+pmd {
+    ignoreFailures = false
+}
+[pmdMain, pmdTest]*.reports {
+    html.enabled true
+    xml.enabled false
+}
+
+apply plugin: 'checkstyle'
+checkstyle {
+    toolVersion = '6.1'     // Force Gradle Checkstyle plugin version that supports Java 8 constructs.
+    ignoreFailures = false
+    configFile = rootProject.file('code-quality/checkstyle/checkstyle.xml')
+}
+apply plugin: 'findbugs'
+findbugs {
+    ignoreFailures = false
+    excludeFilter = rootProject.file('code-quality/findbugs/exclude-filter.xml')
+}
+[findbugsMain, findbugsTest]*.reports {
+    html.enabled true
+    xml.enabled false
+}

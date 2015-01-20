@@ -1,0 +1,12 @@
+<FindBugsFilter>
+    <Match>
+        <Bug>EI_EXPOSE_REP</Bug>
+        <Package>com.mrcodeninja.api.quandl.data</Package>
+        <Class>Metadata</Class>
+    </Match>
+    <Match>
+        <Bug>EI_EXPOSE_REP2</Bug>
+        <Package>com.mrcodeninja.api.quandl.data</Package>
+        <Class>Metadata</Class>
+    </Match>
+</FindBugsFilter>
